@@ -5,7 +5,8 @@
 On this projects, i build a data pipeline for ingest data from Vnstock api, load it to Minio object storage, and transforming data into training-ready data for SARIMA models.
 I am planing on create an Streamlit app for graphical interface for user (for visualization the output of the models)
 
-## Project structure. \
+## Project structure. 
+
 ├── .... \
 ├── docker-compose.yaml        # <------------------------Containerize MinIO and PostgreSQL (for later use) \
 │ \
