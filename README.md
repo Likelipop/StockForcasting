@@ -6,46 +6,30 @@ On this projects, i build a data pipeline for ingest data from Vnstock api, load
 I am planing on create an Streamlit app for graphical interface for user (for visualization the output of the models)
 
 ## Project structure. \
-├── .env \
-├── .gitignore \
+├── .... \
 ├── docker-compose.yaml        # <------------------------Containerize MinIO and PostgreSQL (for later use) \
-├── pyproject.toml \
-├── uv.lock \
 │ \
 ├── data/                      # <------------------------Store data and models for training \
-│   ├── minio/ \
-│   ├── model/ \
-│   └── postgresql/ \
 │ \
 ├── src/ \
 │   └── StockForcasting/ \
 │       ├── __init__.py \
 │       ├── definitions.py     # <------------------------Collects asset & resource definitions by scanning submodules \
-│       │ \
 │       └── defs/ \
 │           ├── __init__.py \
-│           │ \
 │           ├── assets/        # <------------------------Asset definitions \
 │           │   ├── cleaning.py \
 │           │   ├── ingestion.py \
 │           │   ├── modeling.py \
 │           │   ├── transformation.py \
 │           │   └── __init__.py    # <------------------------Loads assets above to create asset definitions \
-│           │ \
 │           ├── partition_defs/ \
 │           │   └── partition_def.py #<------------------------ Monthly partitions for ingestion \
-│           │       
-│           │ \
 │           ├── resources/ \
 │           │   ├── minio_io_manager.py  # <---------------------------------- I/O manager between assets and object storage (MinIO) \
-│           │   │   
 │           │   └── psql_io_manager.py # <---------------------------------- Planned for DBT-based transformations (BI use cases) \
-│           │       
-│           │ \
 │           └── tickers/ \
 │               └── tickers.csv # <--------------------------- Columns: ticker symbol | source (default: VCI) \
-│                   
-│ \
 └── tests/ \
     └── __init__.py \
 
