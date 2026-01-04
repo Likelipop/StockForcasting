@@ -5,47 +5,49 @@
 On this projects, i build a data pipeline for ingest data from Vnstock api, load it to Minio object storage, and transforming data into training-ready data for SARIMA models.
 I am planing on create an Streamlit app for graphical interface for user (for visualization the output of the models)
 
-## Project structure
-ª   .env
-ª   .gitignore
-ª   docker-compose.yaml <------------------------------- containerize the minio and postgres (for later use)
-ª   pyproject.toml
-ª   uv.lock
-ª   
-ª                   
-+---data  #<------------------- for storing data and model for traning 
-ª   +---minio
-ª   +---model
-ª   +---postgresql
-+---src
-ª   +---StockForcasting
-ª       ª   definitions.py  #<---------------------------- it collect asset definitions, resources definitions by scanning all the sub files.
-ª       ª   __init__.py
-ª       ª   
-ª       +---defs
-ª           ª   __init__.py
-ª           ª   
-ª           +---assets # <------------------ definitions forall the assets.
-ª           ª       cleaning.py
-ª           ª       ingestion.py
-ª           ª       modeling.py
-ª           ª       transformation.py
-ª           ª       __init__.py    #<---------------- I load these asset from above (cleaning.py, ingestion.py, modeling.py and transformation.py) to create asset definitions from them.
-ª           ª       
-ª           +---partition_defs
-ª           ª       partition_def.py # <--------------------------- include monthly partitions use for ingestions
-ª           ª       
-ª           +---resources
-ª           ª       minio_io_manager.py # <--------------------------- mainly use as input/ouput transmiter between asset and object storage.
-ª           ª       psql_io_manager.py  # <--------------------------- for later expansion (i am planing to use dbt for transforming data for bussiness intelligence, rather than pandas.)
-ª           ª       
-ª           +---tickers
-ª                   tickers.csv  # <---------------------------------- csv file, include 2 columns : first one contain the ticker's symbol, and the second one is the sources (it should be VCI for default)
-ª                   
-+---tests
-        __init__.py
-        
-
+## Project structure. \
+├── .env \
+├── .gitignore \
+├── docker-compose.yaml        # <------------------------Containerize MinIO and PostgreSQL (for later use) \
+├── pyproject.toml \
+├── uv.lock \
+│ \
+├── data/                      # <------------------------Store data and models for training \
+│   ├── minio/ \
+│   ├── model/ \
+│   └── postgresql/ \
+│ \
+├── src/ \
+│   └── StockForcasting/ \
+│       ├── __init__.py \
+│       ├── definitions.py     # <------------------------Collects asset & resource definitions by scanning submodules \
+│       │ \
+│       └── defs/ \
+│           ├── __init__.py \
+│           │ \
+│           ├── assets/        # <------------------------Asset definitions \
+│           │   ├── cleaning.py \
+│           │   ├── ingestion.py \
+│           │   ├── modeling.py \
+│           │   ├── transformation.py \
+│           │   └── __init__.py    # <------------------------Loads assets above to create asset definitions \
+│           │ \
+│           ├── partition_defs/ \
+│           │   └── partition_def.py #<------------------------ Monthly partitions for ingestion \
+│           │       
+│           │ \
+│           ├── resources/ \
+│           │   ├── minio_io_manager.py  # <---------------------------------- I/O manager between assets and object storage (MinIO) \
+│           │   │   
+│           │   └── psql_io_manager.py # <---------------------------------- Planned for DBT-based transformations (BI use cases) \
+│           │       
+│           │ \
+│           └── tickers/ \
+│               └── tickers.csv # <--------------------------- Columns: ticker symbol | source (default: VCI) \
+│                   
+│ \
+└── tests/ \
+    └── __init__.py \
 
 ### Installing dependencies
 
@@ -96,6 +98,9 @@ dg dev
 ```
 
 Open http://localhost:3000 in your browser to see the project.
+
+## license
+
 
 ## Learn more
 
