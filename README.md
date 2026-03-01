@@ -7,8 +7,8 @@
 
 ## 📖 About The Project
 
-**StockForecasting** is an end-to-end data engineering and machine learning pipeline designed to predict stock trends.
-
+**StockForecasting** is a project that I try to apply data engineering and machine learning in an end-to-end pipeline designed to predict stock trends.
+During the process of developing this project, I can understand more about how data flows through the systems. and how to layer the data pipeline to distill the cleaned, ready-to-use data for the post-training phrase. Moreover, I can interact with several toolsets including Dagster for orchestraion, Docker for containerization, MINIO for object storage etc...
 The system ingests market data from the **VnStock API**, stores raw and processed data in a **MinIO** data lake (S3-compatible object storage), and transforms it into training-ready datasets for **SARIMA** time-series models.
 
 ### Key Features
@@ -131,8 +131,8 @@ Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:30
 
 ---
 
-## 🔮 Roadmap
-
+## 🔮 Addictional 
+Currently I'm trying to intergrate with more features on this source code, especially:
 * [ ] **Streamlit Interface:** Develop a frontend application to visualize model predictions and compare them against actual market movements.
 * [ ] **PostgreSQL Integration:** Implement `psql_io_manager` to serve data to BI tools (e.g., Metabase/Superset) via dbt.
 * [ ] **Model Registry:** Version control trained models using MLflow or Dagster's metadata.
@@ -145,14 +145,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 📚 Learn More
 
-To learn more about the tools used in this project:
-
-* [Dagster Documentation](https://docs.dagster.io/)
-* [MinIO Object Storage](https://min.io/)
-* [VnStock Library](https://github.com/thinh-vu/vnstock)
-
-```
-
-```
